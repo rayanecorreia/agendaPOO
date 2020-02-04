@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<agenda_rayane>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.edu.ifal.agenda_rayane.DemoApplication",
+            "projectName": "agenda_rayane",
+            "args": ""
+        }
+    ]
+}
