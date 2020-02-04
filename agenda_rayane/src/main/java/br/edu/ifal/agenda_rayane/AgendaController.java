@@ -5,32 +5,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
-
 @Controller
 public class AgendaController{
 
 @Autowired
 ContatoRepository contatorepository;
-CompromissoRepository compromissorepository;
 
 
 @RequestMapping("/")
 public ModelAndView index()  {
     return new ModelAndView("index.html");
 }
-@RequestMapping("/FormularioAgenda")
-public ModelAndView formulario(){
-    return new ModelAndView("FormularioAgenda.html");
-}
 @RequestMapping("/FormularioContato")
 public ModelAndView formularioContato(){
     return new ModelAndView("FormularioContato.html");
-}
-@RequestMapping("/FormularioCompromisso")
-public ModelAndView formularioCompromisso(){
-    return new ModelAndView("FormularioCompromisso.html");
 }
 @RequestMapping("/salva-contatos")
 public ModelAndView salvacontatos(Contato contato){
@@ -38,10 +26,16 @@ public ModelAndView salvacontatos(Contato contato){
         return new ModelAndView("redirect:/Formulario");
 
 }
-@RequestMapping("/salva-compromisso")
-public ModelAndView salvacontatos(Compromisso compromisso){
-        compromissorepository.save(compromisso);
-        return new ModelAndView("redirect:/FormularioCompromisso");
+@RequestMapping("/ListaContatos")
+public ModelAndView listacontatos(Contato contato){
+    ModelAndView modelAndView = new ModelAndView("ListaContatos");
+    modelAndView.addObject("Contatos", contatorepository.findAll());
+    return new ModelAndView("redirect:/ListaContatos");
+}
+
+
+
 
 
 }
+
