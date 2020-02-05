@@ -6,14 +6,13 @@ import javax.persistence.Id;
 @Entity
 public class Contato{
     
-    @Id
+    @Id //encapsulamento , esta quebrando pq o spring pede que gets sets para tudo
     private Long id;
     private String nome;
     private String sobrenome;
     private String telefone;
     private String email;
     private String aniversario;
-
 
     /**
      * @return the id
